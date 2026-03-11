@@ -1,6 +1,8 @@
 # UFGraphFR
 UFGraphFR: Graph Federation Recommendation System based on User Text description features
 
+## Paper Correction
+On page 12, in the description of the transformer module, there is a typo in $d_h =\frac{d{item}}{K_h}$. It should be $d_h = d{item}$. Only then will the linear transformation formula above satisfy the transformation $XW^Q$, or $X(W^Q)^T$.
 
 ## Preparations before running the code
 mkdir log
@@ -32,4 +34,18 @@ If you find this project helpful, please consider to cite the following paper:
 
 ```
 
+@article{wang_ufgraphfr_2026,
+	title = {{UFGraphFR}: graph federation recommendation system based on user text description features},
+	volume = {82},
+	issn = {1573-0484},
+	url = {https://doi.org/10.1007/s11227-026-08399-4},
+	doi = {10.1007/s11227-026-08399-4},
+	abstract = {Federated learning provides a privacy-preserving framework for recommendation systems by enabling personalized recommendations. However, the growing scale of user data and the demand for real-time, high-quality recommendations have created unprecedented computational burdens, necessitating support from supercomputing infrastructure. Traditional federated recommendation methods treat each user as an isolated entity, failing to construct a global user relationship graph that captures collaborative signals, thereby limiting recommendation accuracy. To address this limitation, this paper proposes UFGraphFR, a graph-based federated recommendation system leveraging user textual description features. Its core innovation lies in proposing a novel paradigm that uses users’ textual attributes as proxy signals to securely construct a global user relationship graph on the server side without requiring raw interaction data alignment or upload, thereby providing an architectural foundation for privacy preservation. Specifically, the framework comprises three key technical components: (1) on the client side, private structured data are first transformed into textual descriptions via prompt templates and encoded into semantic vectors using a pre-trained model; a trainable linear layer, driven by local interaction data, further maps static semantic vectors into dynamic, personalized low-dimensional user embeddings. (2) On the server side, based solely on model weights uploaded by clients (rather than raw data), a user relationship graph is securely reconstructed by computing the semantic similarity of user embedding weights, and a lightweight graph neural network is employed for information propagation to aggregate global knowledge. (3) On the client side, user behavior sequences are modeled individually using a transformer architecture to capture long-term interest dependencies. This design not only effectively addresses the issue of missing collaborative signals caused by user data isolation in federated recommendations but also offloads computationally intensive graph construction and aggregation tasks to the central server, aligning with a hybrid computing model that leverages high-performance computing clusters to handle massive, real-time privacy-preserving recommendation tasks. Extensive experiments on four benchmark datasets demonstrate that UFGraphFR significantly outperforms state-of-the-art federated and centralized baseline methods in terms of recommendation accuracy (HR@10) and personalization degree (NDCG@10). The framework remains robust across different pre-trained models and shows potential for balancing privacy and performance when optional noise is introduced as a further mitigation. This work provides a practical path for deploying computationally intensive, privacy-preserving recommendation tasks in supercomputing environments, bridging the gap between advanced federated learning and the scalable, high-throughput requirements of supercomputing environments. The code is available at: https://github.com/trueWangSyutung/UFGraphFR.},
+	number = {4},
+	journal = {The Journal of Supercomputing},
+	author = {Wang, Xudong and Hao, Qingbo and Xiao, Yingyuan},
+	month = mar,
+	year = {2026},
+	pages = {237},
+}
 ```
